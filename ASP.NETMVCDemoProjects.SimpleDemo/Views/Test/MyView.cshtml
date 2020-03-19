@@ -1,0 +1,46 @@
+﻿@using ASP.NETMVCDemoProjects.SimpleDemo
+@using ASP.NETMVCDemoProjects.SimpleDemo.ViewModel
+@model ASP.NETMVCDemoProjects.SimpleDemo.ViewModel.EmployeeListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+<div>
+    
+    <table>
+        <tr>
+            <th>Employee Name</th>
+            <th>Salary</th>
+        </tr>
+        @foreach (EmployeeViewModel item in Model.Employees)
+        {
+            <tr>
+                <td>@item.EmployeeName</td>
+                <td style="background-color: @item.SalaryColor">@item.Salary</td>
+            </tr>
+        }
+    </table>
+    
+
+    @*Welcome to MVC 5 step by Step learning.
+       
+        <p>Employee Details</p><br />
+        Employee Name : @Model.EmployeeName <br />
+        <span style="background-color: @Model.SalaryColor">
+            Employee Salary: @Model.Salary<br />
+                                         </span>
+       
+        Employee Name : @ViewBag.Employee.FirstName @ViewBag.Employee.LastName*@
+
+</div>
+</body>
+</html>
