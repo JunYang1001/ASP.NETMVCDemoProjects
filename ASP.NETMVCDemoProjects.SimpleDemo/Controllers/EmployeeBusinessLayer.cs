@@ -21,5 +21,17 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
             salesDal.SaveChanges();
             return e;
         }
+
+        public bool IsVaildUser(UserDetails u)
+        {
+            if (u.UserName == "admin" && u.Password == "123456")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

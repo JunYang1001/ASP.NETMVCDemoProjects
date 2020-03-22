@@ -10,11 +10,12 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
 {
     public class EmployeeController : Controller
     {
+        [Authorize]
         // GET: Test
         public ActionResult Index()
         {
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
-
+            employeeListViewModel.UserName = User.Identity.Name; //New Line
             EmployeeBusinessLayer empBal = new EmployeeBusinessLayer();
             List<Employee> employees = empBal.GetEmployees();
 
