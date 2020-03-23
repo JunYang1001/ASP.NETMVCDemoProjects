@@ -38,5 +38,13 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
                 return UserStatus.NonAuthenticatedUser;
             }
         }
+
+        public void UploadEmployees(List<Employee> employees)
+        {
+            SalesERPDAL salesErpdal=new SalesERPDAL();
+            salesErpdal.Employees.AddRange(employees);
+            salesErpdal.SaveChanges();
+        }
+        
     }
 }
