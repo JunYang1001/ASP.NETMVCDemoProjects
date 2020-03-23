@@ -3,9 +3,32 @@
 @model ASP.NETMVCDemoProjects.SimpleDemo.ViewModel.EmployeeListViewModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/MyLayout.cshtml";
 }
-
+@section TitleSection
+{
+    MyView
+}
+@section ContentBody{
+    <div>
+        @{
+            Html.RenderAction("GetAddNewLink");
+        }
+        <table border="1">
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (EmployeeViewModel item in Model.Employees)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color:@item.SalaryColor">@item.Salary</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
 <!DOCTYPE html>
 
 <html>
@@ -14,35 +37,43 @@
     <title>MyView</title>
 </head>
 <body>
-<div style="text-align: right">Hello,@Model.UserName</div><br/>
-<a herf="/Authentication/Logout">Logout</a>
-<div>
-    <a href="/Employee/AddNew">Add New</a>
-    <table>
-        <tr>
-            <th>Employee Name</th>
-            <th>Salary</th>
-        </tr>
-        @foreach (EmployeeViewModel item in Model.Employees)
-        {
-            <tr>
-                <td>@item.EmployeeName</td>
-                <td style="background-color: @item.SalaryColor">@item.Salary</td>
-            </tr>
+    <div style="text-align: right">
+        Hello,@Model.UserName
+        <a href="/Authentication/Logout">Logout</a>
+    </div><br />
+
+    <div>
+        <hr />
+        @{
+            Html.RenderAction("GetAddNewLink");
         }
-    </table>
+        @*<a href="/Employee/AddNew">Add New</a>*@
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (EmployeeViewModel item in Model.Employees)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color: @item.SalaryColor">@item.Salary</td>
+                </tr>
+            }
+        </table>
 
+        @{Html.RenderPartial("Footer", Model.FooterData);}
 
-    @*Welcome to MVC 5 step by Step learning.
-       
-        <p>Employee Details</p><br />
-        Employee Name : @Model.EmployeeName <br />
-        <span style="background-color: @Model.SalaryColor">
-            Employee Salary: @Model.Salary<br />
-                                         </span>
-       
-        Employee Name : @ViewBag.Employee.FirstName @ViewBag.Employee.LastName*@
+        @*Welcome to MVC 5 step by Step learning.
 
-</div>
+            <p>Employee Details</p><br />
+            Employee Name : @Model.EmployeeName <br />
+            <span style="background-color: @Model.SalaryColor">
+                Employee Salary: @Model.Salary<br />
+                                             </span>
+
+            Employee Name : @ViewBag.Employee.FirstName @ViewBag.Employee.LastName*@
+
+    </div>
 </body>
 </html>

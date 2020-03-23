@@ -30,16 +30,23 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
             if (ModelState.IsValid)
             {
                 EmployeeBusinessLayer dal = new EmployeeBusinessLayer();
-                if (dal.IsVaildUser(user))
+                UserStatus status = dal.IsVaildUser(user);
+                bool IsAdmin = false;
+                if (status == UserStatus.AuthenticatedAdmin)
                 {
-                    FormsAuthentication.SetAuthCookie(user.UserName, false);
-                    return RedirectToAction("Index", "Employee");
+                    IsAdmin = true;
+                }else if (status==UserStatus.NonAuthenticatedUser)
+                {
+                    IsAdmin = false;
                 }
                 else
                 {
                     ModelState.AddModelError("CredentialError", "Invalid Username or Password");
                     return View("Login");
-                } 
+                }
+                FormsAuthentication.SetAuthCookie(user.UserName,false);
+                Session["IsAdmin"] = IsAdmin;
+                return RedirectToAction("Index", "Employee");
             }
             else
             {

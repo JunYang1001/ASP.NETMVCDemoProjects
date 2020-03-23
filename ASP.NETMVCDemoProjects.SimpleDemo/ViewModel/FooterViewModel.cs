@@ -5,9 +5,9 @@ using System.Web;
 
 namespace ASP.NETMVCDemoProjects.SimpleDemo.ViewModel
 {
-    public class EmployeeListViewModel:BaseViewModel
+    public class FooterViewModel
     {
-        public List<EmployeeViewModel> Employees { get; set; }
-       
+        public string CompanyName { get; set; }
+        public string Year { get; set; }
     }
 }

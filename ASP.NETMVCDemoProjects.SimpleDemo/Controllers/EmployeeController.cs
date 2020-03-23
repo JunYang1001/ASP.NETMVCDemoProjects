@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASP.NETMVCDemoProjects.SimpleDemo.Filters;
 using ASP.NETMVCDemoProjects.SimpleDemo.Models;
 using ASP.NETMVCDemoProjects.SimpleDemo.ViewModel;
 
@@ -10,12 +11,16 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
 {
     public class EmployeeController : Controller
     {
+        [HeaderFooterFilter]
         [Authorize]
         // GET: Test
         public ActionResult Index()
         {
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
-            employeeListViewModel.UserName = User.Identity.Name; //New Line
+            employeeListViewModel.FooterData = new FooterViewModel();
+            employeeListViewModel.FooterData.CompanyName = "StepByStep";
+            employeeListViewModel.FooterData.CompanyName = DateTime.Now.ToString();
+            //employeeListViewModel.UserName = User.Identity.Name; //New Line
             EmployeeBusinessLayer empBal = new EmployeeBusinessLayer();
             List<Employee> employees = empBal.GetEmployees();
 
@@ -41,11 +46,31 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
             return View("Index", employeeListViewModel);
 
         }
-
+        [HeaderFooterFilter]
+        [AdminFilter]
         public ActionResult AddNew()
         {
+            CreateEmployeeViewModel employeeListViewModel = new CreateEmployeeViewModel();
+            //employeeListViewModel.FooterData = new FooterViewModel();
+            //employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";//Can be set to dynamic value
+            //employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            employeeListViewModel.UserName = User.Identity.Name; //New Line
             return View("CreateEmployee", new CreateEmployeeViewModel());
         }
+
+        public ActionResult GetAddNewLink()
+        {
+            if (Convert.ToBoolean(Session["IsAdmin"]))
+            {
+                return PartialView("AddNewLink");
+            }
+            else
+            {
+                return new EmptyResult();
+            }
+        }
+        [HeaderFooterFilter]
+        [AdminFilter]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
             switch (BtnSubmit)
@@ -70,6 +95,10 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
                         {
                             vm.Salary = ModelState["Salary"].Value.AttemptedValue;
                         }
+                        vm.FooterData = new FooterViewModel();
+                        vm.FooterData.CompanyName = "StepByStepSchools";//Can be set to dynamic value
+                        vm.FooterData.Year = DateTime.Now.Year.ToString();
+                        vm.UserName = User.Identity.Name; //New Line
                         return View("CreateEmployee", vm); // Day 4 Change - Passing e here
                     }
                 case "Cancel":

@@ -22,15 +22,20 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
             return e;
         }
 
-        public bool IsVaildUser(UserDetails u)
+        public UserStatus IsVaildUser(UserDetails u)
         {
             if (u.UserName == "admin" && u.Password == "123456")
             {
-                return true;
+                return UserStatus.AuthenticatedAdmin;
+            }
+            else if (u.UserName == "user" && u.Password == "123456")
+            {
+                return UserStatus.AuthentucatedUser;
             }
             else
+            
             {
-                return false;
+                return UserStatus.NonAuthenticatedUser;
             }
         }
     }

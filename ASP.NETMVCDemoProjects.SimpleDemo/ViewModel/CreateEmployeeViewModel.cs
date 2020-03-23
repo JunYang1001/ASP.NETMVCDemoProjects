@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ASP.NETMVCDemoProjects.SimpleDemo.ViewModel
 {
-    public class CreateEmployeeViewModel
+    public class CreateEmployeeViewModel : BaseViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
