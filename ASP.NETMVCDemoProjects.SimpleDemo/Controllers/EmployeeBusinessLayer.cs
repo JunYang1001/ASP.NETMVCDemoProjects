@@ -43,6 +43,7 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
         {
             SalesERPDAL salesErpdal=new SalesERPDAL();
             salesErpdal.Employees.AddRange(employees);
+           
             salesErpdal.SaveChanges();
         }
         

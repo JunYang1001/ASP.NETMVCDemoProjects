@@ -32,6 +32,7 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
             EmployeeBusinessLayer bal=new EmployeeBusinessLayer();
             bal.UploadEmployees(employees);
             return RedirectToAction("Index", "Employee");
+            
         }
 
         private List<Employee> GetEmployees(FileUploadViewModel model)
@@ -44,6 +45,7 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
                 var line = streamReader.ReadLine();
                 var vaues = line.Split(',');
                 Employee e=new Employee();
+               
                 e.FirstName = vaues[0];
                 e.LastName = vaues[1];
                 e.Salary = int.Parse(vaues[2]);

@@ -15,14 +15,14 @@ namespace ASP.NETMVCDemoProjects.SimpleDemo.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Message = "Your application description page."+User.Identity.Name;
+            
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(int? id)
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your contact page."+Convert.ToString(id);
 
             return View();
         }
