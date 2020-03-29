@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NETMVCDemoProjects", "ASP.NETMVCDemoProjects\ASP.NETMVCDemoProjects.csproj", "{FD79F927-17E8-4EE4-A427-5A7B3B6DE193}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NETMVCDemoProjects.IdentityDemo", "ASP.NETMVCDemoProjects.IdentityDemo\ASP.NETMVCDemoProjects.IdentityDemo.csproj", "{E4235098-E65B-4145-B0A8-0330CF833CE3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NETMVCDemoProjects.SimpleDemo", "ASP.NETMVCDemoProjects.SimpleDemo\ASP.NETMVCDemoProjects.SimpleDemo.csproj", "{519FC315-CDFD-4203-BC8C-5F659D4BE45E}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{FD79F927-17E8-4EE4-A427-5A7B3B6DE193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD79F927-17E8-4EE4-A427-5A7B3B6DE193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD79F927-17E8-4EE4-A427-5A7B3B6DE193}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4235098-E65B-4145-B0A8-0330CF833CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4235098-E65B-4145-B0A8-0330CF833CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4235098-E65B-4145-B0A8-0330CF833CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4235098-E65B-4145-B0A8-0330CF833CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{519FC315-CDFD-4203-BC8C-5F659D4BE45E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{519FC315-CDFD-4203-BC8C-5F659D4BE45E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{519FC315-CDFD-4203-BC8C-5F659D4BE45E}.Release|Any CPU.ActiveCfg = Release|Any CPU
