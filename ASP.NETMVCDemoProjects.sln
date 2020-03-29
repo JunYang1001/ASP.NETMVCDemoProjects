@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NETMVCDemoProjects", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NETMVCDemoProjects.SimpleDemo", "ASP.NETMVCDemoProjects.SimpleDemo\ASP.NETMVCDemoProjects.SimpleDemo.csproj", "{519FC315-CDFD-4203-BC8C-5F659D4BE45E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NETMVCDemoProjects.identityDemo", "ASP.NETMVCDemoProjects.identityDemo\ASP.NETMVCDemoProjects.identityDemo.csproj", "{5A93AD7E-409E-4001-B67E-20DA0DDB56A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{519FC315-CDFD-4203-BC8C-5F659D4BE45E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{519FC315-CDFD-4203-BC8C-5F659D4BE45E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{519FC315-CDFD-4203-BC8C-5F659D4BE45E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A93AD7E-409E-4001-B67E-20DA0DDB56A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A93AD7E-409E-4001-B67E-20DA0DDB56A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A93AD7E-409E-4001-B67E-20DA0DDB56A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A93AD7E-409E-4001-B67E-20DA0DDB56A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
